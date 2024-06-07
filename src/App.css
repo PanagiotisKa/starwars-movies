@@ -1,4 +1,29 @@
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 20vh;
 }
+
+.navBar {
+  background-color: rgb(183, 184, 184);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 60%;
+  min-height: 30px;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 60%;
+}
+
 
