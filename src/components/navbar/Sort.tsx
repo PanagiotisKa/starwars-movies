@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import { Box, MenuItem, Select, InputLabel, FormControl } from '@mui/material'
 import  { SelectChangeEvent } from '@mui/material/Select';
 import  { useDispatch, useSelector } from 'react-redux'
@@ -17,9 +16,8 @@ function Sort() {
 
   return (
     <div>
-      {sort}
-       <Box sx={{ minWidth: 200 }}>
-       <FormControl sx={{ m: 1, minWidth: 200 }}>
+       <Box sx={{ minWidth: 100}}>
+       <FormControl sx={{ m: 1, minWidth: 100}}>
        <InputLabel id="demo-simple-select-helper-label">Sort By...</InputLabel>
         <Select
           labelId="demo-simple-select-label"
