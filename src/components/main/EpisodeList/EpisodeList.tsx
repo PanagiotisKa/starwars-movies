@@ -21,7 +21,7 @@ function EpisodeList() {
     if (error) return <div>Error: {error}</div>;
     if(value) {
       return (
-        <Box sx={{minWidth: 300}}>
+        <Box>
         <Table>
           <TableBody>
         {[...value].sort((a,b)=>{ 

@@ -10,6 +10,7 @@ interface EpisodeItem {
         rating_IMD: number
         rating_RottenTomatoes: number
         rating_Metacritic: number
+        general_rating : number
 }
 
 interface EpisodeListState {
@@ -77,6 +78,9 @@ export const getEpisodeListData = createAsyncThunk(
                 BasicResults.data.results[i]['rating_IMD'] = parseFloat(ExtraResults.data.Ratings[0].Value.split("/")[0])
                 BasicResults.data.results[i]['rating_RottenTomatoes'] = parseInt(ExtraResults.data.Ratings[1].Value.split("%")[0])/10
                 BasicResults.data.results[i]['rating_Metacritic'] = parseInt(ExtraResults.data.Ratings[2].Value.split("/")[0])/10
+
+                BasicResults.data.results[i]['general_rating'] = ((BasicResults.data.results[i]['rating_IMD']+BasicResults.data.results[i]['rating_RottenTomatoes']
+                    +BasicResults.data.results[i]['rating_Metacritic'])/3)
             }
         
         }

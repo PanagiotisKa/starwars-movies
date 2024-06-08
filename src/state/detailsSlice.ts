@@ -7,6 +7,7 @@ interface DetailsState {
     rating_IMD: number
     rating_RottenTomatoes: number
     rating_Metacritic: number
+    general_rating: number
 }
 
 const initialState: DetailsState = {
@@ -15,7 +16,8 @@ const initialState: DetailsState = {
     poster: 'https://cdn.pixabay.com/photo/2016/01/02/16/39/darth-vader-1118454_1280.png',
     rating_IMD: 0,
     rating_RottenTomatoes: 0,
-    rating_Metacritic: 0
+    rating_Metacritic: 0,
+    general_rating: 0
 }
 
 const detailsSlice = createSlice({
@@ -29,6 +31,7 @@ const detailsSlice = createSlice({
             state.rating_IMD = action.payload.rating_IMD
             state.rating_RottenTomatoes = action.payload.rating_RottenTomatoes
             state.rating_Metacritic = action.payload.rating_Metacritic
+            state.general_rating = action.payload.general_rating
         }
     }
 })
