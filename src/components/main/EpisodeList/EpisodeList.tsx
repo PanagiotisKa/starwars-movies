@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import  { useDispatch, useSelector } from 'react-redux'
 import { getEpisodeListData } from '../../../state/episodeListSlice'
 import { RootState, AppDispatch } from '../../../state/store'
+import { Box, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
+import Episode from './Episode'
 
 function EpisodeList() {
-
-  const [finalArray, setFinalArray] = useState([])
 
     const dispatch = useDispatch<AppDispatch>()
     const { value, loading, error } = useSelector((state: RootState) => state.episodeList)
@@ -21,18 +21,18 @@ function EpisodeList() {
     if (error) return <div>Error: {error}</div>;
     if(value) {
       return (
-        <>
-        <ul>
+        <Box sx={{minWidth: 300}}>
+        <Table>
+          <TableBody>
         {[...value].sort((a,b)=>{ 
           if( sort === 'year') { return parseInt(a.release_date.split("-")[0]) - parseInt(b.release_date.split("-")[0])} 
-          return a.episode_id - b.episode_id}).filter(episode => episode.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())).map(episode => {
-          return (
-            <li key={episode.episode_id}> EPISODE {episode.episode_id} {episode.title} {episode.release_date}</li>
-          )
+          return a.episode_id - b.episode_id}).filter(episode => episode.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+          .map(episode => {
+          return (<Episode episode={episode}/>)
         })}
-        </ul>
-        <div>episodeList</div>
-        </>
+        </TableBody>
+        </Table>
+        </Box>
       )
     }
 }
