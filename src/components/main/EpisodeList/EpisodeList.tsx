@@ -13,7 +13,7 @@ function EpisodeList() {
     const search= useSelector((state: RootState) => state.search.value)
 
     useEffect(()=>{
-      dispatch(getEpisodeListData(process.env.REACT_APP_API_ENDPOINT!))
+      dispatch(getEpisodeListData([process.env.REACT_APP_API_ENDPOINT!, process.env.REACT_APP_OMBAPI!]))
     }, [dispatch])
 
 
@@ -28,7 +28,7 @@ function EpisodeList() {
           if( sort === 'year') { return parseInt(a.release_date.split("-")[0]) - parseInt(b.release_date.split("-")[0])} 
           return a.episode_id - b.episode_id}).filter(episode => episode.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
           .map(episode => {
-          return (<Episode episode={episode}/>)
+          return (<Episode key={episode.episode_id}  episode={episode}/>)
         })}
         </TableBody>
         </Table>

@@ -6,10 +6,10 @@ interface EpisodeItem {
         title: string
         opening_crawl: string
         release_date: string
-        // rating_IMD: number
-        // rating_RottenTomatoes: number
-        // rating_Metacritic: number
-        // poster: string
+        poster: string
+        rating_IMD: number
+        rating_RottenTomatoes: number
+        rating_Metacritic: number
 }
 
 interface EpisodeListState {
@@ -20,6 +20,14 @@ interface EpisodeListState {
 
 interface DataResponse {
     results: Array<EpisodeItem>
+}
+
+interface ExtraDataResponse {
+    Poster: string
+    Ratings: {
+        Source: string,
+        Value: string
+    }[]
 }
 
 interface DataError {
@@ -58,11 +66,22 @@ const episodeListSlice = createSlice({
 
 export const getEpisodeListData = createAsyncThunk(
     "episodeList/getEpisodeData",
-    async (endpoint: string, thunkAPI) => {
+    async ([endpoint1, endpoint2]: string[], thunkAPI) => {
         try {
-            // first request
-        const { data } = await axios.get<DataResponse>(endpoint)
-            return data
+        const BasicResults = await axios.get<DataResponse>(endpoint1)
+        if(Array.isArray(BasicResults.data.results) ) {
+            for(let i =0; i< BasicResults.data.results.length; i++){
+                const ExtraResults = await axios.get<ExtraDataResponse>(endpoint2 + `t=Star+Wars&y=${BasicResults.data.results[i].release_date.split("-")[0]}` )
+                console.log(ExtraResults.data.Ratings)
+                BasicResults.data.results[i]['poster'] = ExtraResults.data.Poster
+                BasicResults.data.results[i]['rating_IMD'] = parseFloat(ExtraResults.data.Ratings[0].Value.split("/")[0])
+                BasicResults.data.results[i]['rating_RottenTomatoes'] = parseInt(ExtraResults.data.Ratings[1].Value.split("%")[0])/10
+                BasicResults.data.results[i]['rating_Metacritic'] = parseInt(ExtraResults.data.Ratings[2].Value.split("/")[0])/10
+            }
+        
+        }
+        console.log(BasicResults.data)
+            return BasicResults.data
         } catch (error) {
             return thunkAPI.rejectWithValue({message: error })
         }
