@@ -26,8 +26,8 @@ function Sort() {
           label="Sort By..."
           onChange={handleChange}
         >
-          <MenuItem value={'Episode'}>Episode</MenuItem>
-          <MenuItem value={'Year'}>Year</MenuItem>
+          <MenuItem value={'episode'}>Episode</MenuItem>
+          <MenuItem value={'year'}>Year</MenuItem>
         </Select>
         </FormControl>
        </Box>
