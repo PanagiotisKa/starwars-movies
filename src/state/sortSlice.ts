@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 
 interface SortState {
-    value : 'Episode' | 'Year'
+    value : string
 }
 
 const initialState: SortState = {
@@ -10,10 +10,10 @@ const initialState: SortState = {
 }
 
 const sortSlice = createSlice({
-  name: "sort",
+  name: 'sort',
   initialState,
   reducers: {
-    setSort: (state, action) => {
+    setSort: (state, action: PayloadAction<string>) => {
         state.value = action.payload
     }
   }  

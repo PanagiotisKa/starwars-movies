@@ -12,6 +12,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   min-height: 30px;
+  width: 90%;
   border-radius: 8px;
   margin-bottom: 2rem;
   margin-top: 2rem;

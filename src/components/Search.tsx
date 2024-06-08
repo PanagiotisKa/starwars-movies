@@ -19,8 +19,8 @@ function Search() {
 
   return (
     <div>
-      <Box sx={{ minWidth: 400}}>
-      <FormControl sx={{ m: 1, minWidth: 400}}>
+      <Box sx={{ minWidth: 350}}>
+      <FormControl sx={{ m: 1, minWidth: 350}}>
       <TextField id="outlined-basic" label="Search Title" variant="outlined" 
       onChange={(e) => handleChange(e)} onFocus={(e) => handleFocus(e)}/>
       </FormControl>
