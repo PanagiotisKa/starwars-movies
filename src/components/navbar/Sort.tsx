@@ -15,9 +15,8 @@ function Sort() {
 
 
   return (
-    <div>
-       <Box sx={{ minWidth: 100}}>
-       <FormControl sx={{ m: 1, minWidth: 100}}>
+       <Box>
+       <FormControl sx={{ m: 1, minWidth: 200}}>
        <InputLabel id="demo-simple-select-helper-label">Sort By...</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -31,7 +30,6 @@ function Sort() {
         </Select>
         </FormControl>
        </Box>
-    </div>
   )
 }
 

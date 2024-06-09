@@ -1,23 +1,2 @@
-.App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 20vh;
-}
-
-.navBar {
-  background-color: rgb(234, 240, 240);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  min-height: 30px;
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-
-  padding: 10px;
-  
-}
 
 

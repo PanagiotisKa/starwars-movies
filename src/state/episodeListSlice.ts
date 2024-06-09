@@ -73,7 +73,7 @@ export const getEpisodeListData = createAsyncThunk(
         if(Array.isArray(BasicResults.data.results) ) {
             for(let i =0; i< BasicResults.data.results.length; i++){
                 const ExtraResults = await axios.get<ExtraDataResponse>(endpoint2 + `t=Star+Wars&y=${BasicResults.data.results[i].release_date.split("-")[0]}` )
-                console.log(ExtraResults.data.Ratings)
+                
                 BasicResults.data.results[i]['poster'] = ExtraResults.data.Poster
                 BasicResults.data.results[i]['rating_IMD'] = parseFloat(ExtraResults.data.Ratings[0].Value.split("/")[0])
                 BasicResults.data.results[i]['rating_RottenTomatoes'] = parseInt(ExtraResults.data.Ratings[1].Value.split("%")[0])/10
@@ -84,7 +84,6 @@ export const getEpisodeListData = createAsyncThunk(
             }
         
         }
-        console.log(BasicResults.data)
             return BasicResults.data
         } catch (error) {
             return thunkAPI.rejectWithValue({message: error })

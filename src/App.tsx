@@ -1,15 +1,21 @@
-import React from 'react';
-import './App.css';
+
 import Navbar from './components/navbar/Navbar';
 import Main from './components/main/Main';
+import { Container, Grid } from '@mui/material';
 
 function App() {
-  console.log(process.env.REACT_APP_API_ENDPOINT)
   return (
-    <div className="App">
-      <Navbar/>
-      <Main/>
-    </div>
+    <Container>
+
+    <Grid container>
+      <Grid item md={12}>
+        <Navbar/>
+      </Grid>
+      <Grid item md={12}>
+        <Main/>
+      </Grid>
+   </Grid>
+    </Container>
   );
 }
 

@@ -1,7 +1,7 @@
-import {Box, TextField, FormControl} from '@mui/material'
+import { TextField, FormControl} from '@mui/material'
 import  { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../state/store'
-import { setSearch, resetSearch } from '../state/searchSlice';
+import { RootState } from '../../state/store'
+import { setSearch, resetSearch } from '../../state/searchSlice';
 
 function Search() {
 
@@ -18,14 +18,10 @@ function Search() {
   };
 
   return (
-    <div>
-      <Box sx={{ minWidth: 350}}>
-      <FormControl sx={{ m: 1, minWidth: 350}}>
-      <TextField id="outlined-basic" label="Search Title" variant="outlined" 
-      onChange={(e) => handleChange(e)} onFocus={(e) => handleFocus(e)}/>
+      <FormControl sx={{ m: 1, }}>
+        <TextField sx={{width:'500'}} id="outlined-basic" label="Search Title" variant="outlined" 
+        onChange={(e) => handleChange(e)} onFocus={(e) => handleFocus(e)}/>
       </FormControl>
-      </Box>
-    </div>
   )
 }
 

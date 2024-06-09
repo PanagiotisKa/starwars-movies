@@ -6,7 +6,7 @@ interface SortState {
 }
 
 const initialState: SortState = {
-    value : 'Episode'
+    value : 'episode'
 }
 
 const sortSlice = createSlice({

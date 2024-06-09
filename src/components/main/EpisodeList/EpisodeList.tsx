@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import  { useDispatch, useSelector } from 'react-redux'
 import { getEpisodeListData } from '../../../state/episodeListSlice'
 import { RootState, AppDispatch } from '../../../state/store'
-import { Box, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
+import { Box, Table,TableBody } from '@mui/material'
 import Episode from './Episode'
 
 function EpisodeList() {
@@ -21,7 +21,7 @@ function EpisodeList() {
     if (error) return <div>Error: {error}</div>;
     if(value) {
       return (
-        <Box>
+        <Box sx={{borderRight: 1, borderColor: '#eaf0f0', width: '100%'}}>
         <Table>
           <TableBody>
         {[...value].sort((a,b)=>{ 
