@@ -4,7 +4,7 @@ import  { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../state/store'
 import { setSort } from '../../state/sortSlice';
 
-function Sort() {
+function SortSelect() {
 
   const sort = useSelector((state: RootState) => state.sort.value)
   const dispatch = useDispatch()
@@ -15,8 +15,7 @@ function Sort() {
 
 
   return (
-       <Box>
-       <FormControl sx={{ m: 1, minWidth: 200}}>
+       <FormControl sx={{ m:2}}>
        <InputLabel id="demo-simple-select-helper-label">Sort By...</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -27,10 +26,10 @@ function Sort() {
         >
           <MenuItem value={'episode'}>Episode</MenuItem>
           <MenuItem value={'year'}>Year</MenuItem>
+          <MenuItem value={'rating'}>Rating</MenuItem>
         </Select>
         </FormControl>
-       </Box>
   )
 }
 
-export default Sort
+export default SortSelect

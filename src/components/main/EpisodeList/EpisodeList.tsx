@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import  { useDispatch, useSelector } from 'react-redux'
 import { getEpisodeListData } from '../../../state/episodeListSlice'
 import { RootState, AppDispatch } from '../../../state/store'
-import { Box, Table,TableBody } from '@mui/material'
+import {Box, CircularProgress, Table,TableBody } from '@mui/material'
 import Episode from './Episode'
 
 function EpisodeList() {
@@ -17,22 +17,26 @@ function EpisodeList() {
     }, [dispatch])
 
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return (
+      <Box display="flex" justifyContent="center">
+        <CircularProgress sx={{color:"#ffbf00"}} />
+     </Box>)
     if (error) return <div>Error: {error}</div>;
     if(value) {
       return (
-        <Box sx={{borderRight: 1, borderColor: '#eaf0f0', width: '100%'}}>
         <Table>
           <TableBody>
-        {[...value].sort((a,b)=>{ 
-          if( sort === 'year') { return parseInt(a.release_date.split("-")[0]) - parseInt(b.release_date.split("-")[0])} 
-          return a.episode_id - b.episode_id}).filter(episode => episode.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
-          .map(episode => {
+        {[...value]
+        .sort((a,b)=>{ 
+          if( sort === 'year') { return parseInt(a.release_date.split("-")[0]) - parseInt(b.release_date.split("-")[0])}
+          if( sort === 'rating') { return b.general_rating - a.general_rating } 
+          return a.episode_id - b.episode_id})
+        .filter(episode => episode.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+        .map(episode => {
           return (<Episode key={episode.episode_id}  episode={episode}/>)
         })}
         </TableBody>
         </Table>
-        </Box>
       )
     }
 }
