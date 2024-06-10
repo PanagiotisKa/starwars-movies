@@ -7,7 +7,7 @@ function RatingInfo() {
   return (
     <>
     <Grid item xs={10} sm={10} md={12}>
-    <Typography> Average rating: <Rating name="customized-11" size="small" readOnly={true} precision={0.5} value={details.general_rating} max={10} /></Typography>
+    <Typography sx={ {p:1}} > Average rating: <Rating name="customized-11" size="small" readOnly={true} precision={0.5} value={details.general_rating} max={10} /></Typography>
     </Grid>
     <Grid item sx={{pb:2}} sm={10} md={12} >
     <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} >

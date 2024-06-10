@@ -1,12 +1,10 @@
 import { TextField, InputAdornment} from '@mui/material'
-import  { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../state/store'
+import  { useDispatch} from 'react-redux'
 import { setSearch, resetSearch } from '../../state/searchSlice';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
 function SearchInput() {
 
-  const search = useSelector((state: RootState) => state.search.value)
   const dispatch = useDispatch()
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {

@@ -1,9 +1,11 @@
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 import  { useDispatch, useSelector } from 'react-redux'
 import { getEpisodeListData } from '../../../state/episodeListSlice'
 import { RootState, AppDispatch } from '../../../state/store'
 import {Box, CircularProgress, Table,TableBody } from '@mui/material'
 import Episode from './Episode'
+
+
 
 function EpisodeList() {
 
@@ -18,12 +20,18 @@ function EpisodeList() {
 
 
     if (loading) return (
-      <Box display="flex" justifyContent="center">
+      <Box sx={{pt: 10}} display="flex" justifyContent="center">
         <CircularProgress sx={{color:"#ffbf00"}} />
      </Box>)
-    if (error) return <div>Error: {error}</div>;
+
+    if (error) return (
+      <Box sx={{pt: 10}} display="flex" justifyContent="center">
+        <div>Error: {error}</div>;
+      </Box>)
+
     if(value) {
       return (
+        <>
         <Table>
           <TableBody>
         {[...value]
@@ -37,8 +45,10 @@ function EpisodeList() {
         })}
         </TableBody>
         </Table>
+        </>
       )
     }
+    return <></>
 }
 
 export default EpisodeList

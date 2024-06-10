@@ -1,4 +1,3 @@
-import React from 'react'
 import EpisodeList from './EpisodeList/EpisodeList'
 import Details from './Details/Details'
 import {Grid} from '@mui/material/'

@@ -8,18 +8,27 @@ function Details() {
 
   return (
       <Grid container spacing={2} justifyContent="center">
-      {/* TITLE */}  
+
+        {/* TITLE */}  
         <Grid item xs={10} sm={12} md={12} >
           <Typography variant='h4'>{details.title}</Typography>
         </Grid>
-      {/* IMAGE/ POSTER */}
+
+        {/* IMAGE/ POSTER */}
         <Grid item xs={10} sm={5} md={3} lg={4}>
           <Box component="img" sx={{ mb:1, mt:1, width: '100%'}} alt="starwars" src={details.poster} />
         </Grid>
-      {/* MAIN TEXT */}
+
+        {/* MAIN TEXT */}
         <Grid item xs={10} sm={10} md={9} lg={8}>
         <Typography sx={ {p:1}} variant='body2'>{details.info}</Typography>
         </Grid>
+
+        {/* DIRECTOR */}
+        <Grid item xs={10} sm={10} md={12}>
+        <Typography sx={ {p:1}} variant='body1'>{details.director? 'Director: ' + details.director: '' }</Typography>
+        </Grid>
+
         {/* RATING */}
         { details.general_rating > 0 &&
         <RatingInfo/>
