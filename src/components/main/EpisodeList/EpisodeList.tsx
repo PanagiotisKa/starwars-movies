@@ -20,7 +20,7 @@ function EpisodeList() {
 
 
     if (loading) return (
-      <Box sx={{pt: 10}} display="flex" justifyContent="center">
+      <Box data-testid="loading" sx={{pt: 10}} display="flex" justifyContent="center">
         <CircularProgress sx={{color:"#ffbf00"}} />
      </Box>)
 

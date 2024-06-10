@@ -16,8 +16,9 @@ function SortSelect() {
 
   return (
        <FormControl sx={{ m:2}}>
-       <InputLabel id="demo-simple-select-helper-label">Sort By...</InputLabel>
+       <InputLabel data-testid="select-label" id="demo-simple-select-helper-label">Sort By...</InputLabel>
         <Select
+          data-testid="select-element"
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={sort}

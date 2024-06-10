@@ -1,20 +1,28 @@
-import {render, screen} from '@testing-library/react'
+import {render, screen, fireEvent} from '@testing-library/react'
 import SearchInput from '../SearchInput'
 import {Provider} from 'react-redux'
 import {store} from '../../../state/store'
 describe('SearchInput Component Tests', () => {
-    it('first Test', () => {
-        
-        const SearchInput_Redux = ()=> {
-            return (
-                <Provider store={store}>
+
+    const SearchInput_Provider = ()=> {
+        return (
+            <Provider store={store}>
                 <SearchInput/>
             </Provider>
         )
-        }
-        
-        render(<SearchInput_Redux/>)
-      const test = screen.getByLabelText('Search Title')
-        screen.debug()
+    }
+
+    it('Text Field exists', () => {
+        render(<SearchInput_Provider/>)
+            const textField = screen.getByLabelText('Search Title')
+        expect(textField).toBeInTheDocument()
     })
+
+    it('Text Field exists', () => {
+        render(<SearchInput_Provider/>)
+            const textField = screen.getByLabelText('Search Title')
+        expect(textField.textContent).toBe('')
+    })
+
+
 })
