@@ -1,4 +1,4 @@
-import {render, screen, fireEvent} from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import Details from '../Details'
 import {Provider} from 'react-redux'
 import {store} from '../../../../state/store'

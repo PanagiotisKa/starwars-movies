@@ -1,7 +1,8 @@
-import {render, screen, fireEvent} from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import SearchInput from '../SearchInput'
 import {Provider} from 'react-redux'
 import {store} from '../../../state/store'
+
 describe('SearchInput Component Tests', () => {
 
     const SearchInput_Provider = ()=> {

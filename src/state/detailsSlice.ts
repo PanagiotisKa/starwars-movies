@@ -1,4 +1,4 @@
-import {createSlice } from "@reduxjs/toolkit";
+import {createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface DetailsState {
     title: string
@@ -26,7 +26,7 @@ const detailsSlice = createSlice({
     name: 'details',
     initialState,
     reducers: {
-        setDetails: (state, action) => {
+        setDetails: (state, action: PayloadAction<DetailsState>) => {
             state.title = action.payload.title
             state.info = action.payload.info
             state.poster = action.payload.poster

@@ -29,13 +29,13 @@ function Episode({ episode }: EpisodeType) {
   };
   return (
     <TableRow style={{ cursor: 'pointer' }} onClick={() => handleChange({ episode })}>
-    <TableCell>EPISODE {episode.episode_id} </TableCell> 
-    <TableCell>{episode.title}</TableCell> 
-    {/* Rating with starts. Small screens with number */}
-    <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' }}}><Rating name="customized-10" size="small" readOnly={true} precision={0.2} defaultValue={episode.general_rating} max={10} /></TableCell>
-    <TableCell sx={{ display: { xs: 'table-cell', sm: 'none' }}}>{episode.general_rating.toFixed(2)}<StarIcon sx={{color:"#fcb314", height: 18}}/></TableCell>
-    <TableCell>{episode.release_date? new Date(episode.release_date).toLocaleString('el', {year: 'numeric', month: 'numeric', day: 'numeric'}): '-'} </TableCell>  
- </TableRow>
+      <TableCell>EPISODE {episode.episode_id} </TableCell> 
+      <TableCell>{episode.title}</TableCell> 
+      {/* Rating with starts. Small screens with number */}
+      <TableCell sx={{ display: { xs: 'none', sm: 'table-cell' }}}><Rating name="customized-10" size="small" readOnly={true} precision={0.2} defaultValue={episode.general_rating} max={10} /></TableCell>
+      <TableCell sx={{ display: { xs: 'table-cell', sm: 'none' }}}>{episode.general_rating.toFixed(2)}<StarIcon sx={{color:"#fcb314", height: 18}}/></TableCell>
+      <TableCell>{episode.release_date? new Date(episode.release_date).toLocaleString('el', {year: 'numeric', month: 'numeric', day: 'numeric'}): '-'} </TableCell>  
+  </TableRow>
   )
 }
 

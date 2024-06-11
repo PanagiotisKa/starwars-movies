@@ -26,26 +26,26 @@ function EpisodeList() {
 
     if (error) return (
       <Box sx={{pt: 10}} display="flex" justifyContent="center">
-        <div>Error: {error}</div>;
+        <>Error: {error}</>;
       </Box>)
 
     if(value) {
       return (
         <>
-        <Table>
-          <TableBody>
-        {[...value]
-        .sort((a,b)=>{ 
-          if( sort === 'year') { return parseInt(a.release_date.split("-")[0]) - parseInt(b.release_date.split("-")[0])}
-          if( sort === 'rating') { return b.general_rating - a.general_rating } 
-          return a.episode_id - b.episode_id})
-        .filter(episode => episode.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
-        .map(episode => {
-          return (<Episode key={episode.episode_id}  episode={episode}/>)
-        })}
-        </TableBody>
+          <Table>
+            <TableBody>
+              {[...value]
+              .sort((a,b)=>{ 
+                if( sort === 'year') { return parseInt(a.release_date.split("-")[0]) - parseInt(b.release_date.split("-")[0])}
+                if( sort === 'rating') { return b.general_rating - a.general_rating } 
+                return a.episode_id - b.episode_id})
+              .filter(episode => episode.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+              .map(episode => {
+                return (<Episode key={episode.episode_id}  episode={episode}/>)
+              })}
+          </TableBody>
         </Table>
-        </>
+      </>
       )
     }
     return <></>

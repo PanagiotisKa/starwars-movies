@@ -2,6 +2,8 @@ import { RootState } from '../../../state/store'
 import  { useSelector } from 'react-redux'
 import { Box,Typography, Grid } from "@mui/material"
 import RatingInfo from './RatingInfo'
+
+
 function Details() {
 
   const details = useSelector((state: RootState) => state.details)

@@ -11,7 +11,7 @@ function SearchInput() {
     dispatch(setSearch(event.target.value))
   };
 
-  const handleFocus = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+  const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     e.target.value = ''
     dispatch(resetSearch())
   };
@@ -21,7 +21,7 @@ function SearchInput() {
           <InputAdornment position="start">
             <SearchOutlinedIcon/>
           </InputAdornment>)}} id="outlined-basic" label="Search Title" variant="outlined" 
-        onChange={(e) => handleChange(e)} onFocus={(e) => handleFocus(e)} />
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)} onFocus={(e: React.FocusEvent<HTMLInputElement>) => handleFocus(e)} />
   )
 }
 
